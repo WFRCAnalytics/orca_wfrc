@@ -1,11 +1,17 @@
 import setuptools
+from setuptools.command.sdist import sdist
+
+
+# these make sure the js distribution bundle is created and
+# up-to-date when creating distribution packages.
+cmdclass = {}
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
     
 setuptools.setup(
     name='orca_wfrc',
-    version='0.0.1',
+    version='0.0.3',
     description='A pipeline orchestration tool with Pandas support, modified by WFRC',
     long_description=long_description,
     author='WFRC_Analytics.',
@@ -20,7 +26,7 @@ setuptools.setup(
         'Programming Language :: Python :: 3.8',
         'License :: OSI Approved :: BSD License'
     ],
-    packages=find_packages(exclude=['*.tests']),
+    packages=setuptools.find_packages(exclude=['*.tests']),
     package_data={
         'orca': [
             'server/static/css/*',
