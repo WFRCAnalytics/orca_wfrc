@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
     
 setuptools.setup(
     name='orca_wfrc',
-    version='0.0.3',
+    version='0.0.4',
     description='A pipeline orchestration tool with Pandas support, modified by WFRC',
     long_description=long_description,
     author='WFRC_Analytics.',
@@ -33,12 +33,11 @@ setuptools.setup(
             'server/static/js/dist/*',
             'server/templates/*']
     },
-    # New versions of PyTables ("tables" on pypi) often fail to install correctly, so we
-    # are being conservative here and disallowing them until tested
+
     install_requires=[
         'pandas >= 0.15.0',
         'tables >=3.1, <3.6; python_version <"3.6"',
-        'tables >=3.1, <3.7; python_version >="3.6"',
+        'tables >=3.1, <=3.7; python_version >="3.6"',
         'toolz >= 0.8.1'
     ],
     extras_require={
